@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:  # <-- This allows manual triggering via the GitHub API
 
 jobs:
   build:
@@ -36,4 +37,3 @@ jobs:
       - name: Push Docker image
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/ml-docker-app:latest
-
